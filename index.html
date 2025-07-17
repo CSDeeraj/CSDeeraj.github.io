@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typing Animation</title>
+</head>
+<body style="background:black; color:red; font-size:28px;">
+  <h1>Hi, My name is Deeraj</h1>
+  <p id="text"></p>
+
+  <script>
+    const msg = "We dont stop and we DEVOUR";
+    let i = 0;
+    let forward = true;
+
+    function type() {
+      const el = document.getElementById("text");
+
+      if (forward) {
+        i++;
+        if (i >= msg.length) forward = false;
+      } else {
+        i--;
+        if (i <= 0) forward = true;
+      }
+
+      el.innerText = msg.slice(0, i);
+      setTimeout(type, 100);
+    }
+
+    type();
+  </script>
+</body>
+</html>
